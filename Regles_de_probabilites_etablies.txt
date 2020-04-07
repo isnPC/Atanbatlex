@@ -1,0 +1,19 @@
+Régles de probabilités établies :
+
+J = Joué
+BmT = Total de Buts Mis
+BeT = Total de Buts Encaissés
+G = Gagné
+P = Perdu
+N = Nul
+Bm = Buts Mis
+Be = Buts Encaissés
+a = équipe choisie n°1
+b = équipe choisie n°2
+
+P(Ga) = P(Pb) = (Ga+Pb)/Ja+Jb
+P(Pa) = P(Gb) = (Pa+Gb)/Ja+Jb
+P(Na) = P(Nb) = (Na+Nb)/Ja+Jb
+
+Bma = Bpb = Round([(BmTa/Ja)+(BeTb/Jb)]/2)
+Bmb = Bpa = Round([(BmTb/Jb)+(BeTa/Ja)]/2) 
