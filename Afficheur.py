@@ -1,5 +1,5 @@
 from tkinter import *
-
+from tkinter import ttk
 # Créer une premiere fenetre
 window = Tk()
 
@@ -41,7 +41,19 @@ def Ouvrirligue1():
     label_title = Label(ligue1, text="Contre", font=("Bauhaus 93", 14))
     label_title.pack(expand=YES)
 
+    #Ajout liste deroulante
 
+    labelChoix = Label(ligue1, text="Veuillez choisir")
+    labelChoix.pack()
+
+    #Création de la liste des équipes
+
+    listequipes = ["ParisSG", "Marseille", "Rennes", "Lille", "Reims", "Nice", "Lyon", "Montpellier", "Monaco", "Angers", "Strasbourg", "Bordeaux", "Nantes", "Brest", "Metz", "Dijon", "ASSE", "Nimes", "Amiens", "Toulouse"]
+
+    #Création de l'objet
+
+    ListeCombo = ttk.Combobox(ligue1, values=listequipes)
+    ListeCombo.pack()
 # Barre menu
 MenuBar = Menu(window)
 
