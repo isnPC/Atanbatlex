@@ -64,13 +64,22 @@ def Ouvrirligue1():
 
     #Création de l'objet
 
-    ListeCombo = ttk.Combobox(ligue1, values=listequipes)
+    select1 = StringVar()
+    ListeCombo = ttk.Combobox(ligue1, values=listequipes, textvariable = select1)
     ListeCombo.grid(row=3, column=1)
+
 
     #Création de l'objet 2
 
-    ListeCombo2 = ttk.Combobox(ligue1, values=listequipes)
+    select2 = StringVar()
+    ListeCombo2 = ttk.Combobox(ligue1, values=listequipes, textvariable = select2)
     ListeCombo2.grid(row=3, column=4)
+
+    #Création du boutton valider
+    equipe1 = select1.get
+    equipe2 = select2.get
+    bouttonvalider = Button(ligue1, text="Valider")
+    bouttonvalider.grid(row=4,column=3)
 
 
 def OuvrirContact():
@@ -171,18 +180,11 @@ Amiens = tableau[19]
 Toulouse = tableau[20]
 
 #Calculer les différentes probabilitées
-equipe1 =
-equipe2 =
 
 def calcul_resultat(equipe1,equipe2):
     if int(equipe1[2])/int(equipe1[1]) - int(equipe2[2])/int(equipe2[1]) > 0.2 :
         return equipe1[0]
-    elif 0.2> equipe1[2]/equipe1[1] - equipe2[2]/equipe2[1] > -0.2 :
+    elif 0.2> int(equipe1[2]/equipe1[1]) - int(equipe2[2]/equipe2[1]) > -0.2 :
         return "Match nul"
     else :
         return equipe2[0]
-
-
-"""
-.get
-"""
