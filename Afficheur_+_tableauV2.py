@@ -1,10 +1,55 @@
 ﻿from tkinter import *
 from tkinter import ttk
 
+#Récupérer les données du classement
+
+tableau = []
+with open('Classement_ligue _1_(avant_COVID-19).csv','r') as fic:
+        for ligne in fic:
+            tableau.append(ligne.strip().split(";"))
+
+ParisSG = tableau[1]
+Marseille = tableau[2]
+Rennes = tableau[3]
+Lille = tableau[4]
+Reims = tableau[5]
+Nice = tableau[6]
+Lyon = tableau[7]
+Montpellier = tableau[8]
+Monaco = tableau[9]
+Angers = tableau[10]
+Strasbourg = tableau[11]
+Bordeaux = tableau[12]
+Nantes = tableau[13]
+Brest = tableau[14]
+Metz = tableau[15]
+Dijon = tableau[16]
+ASSE = tableau[17]
+Nimes = tableau[18]
+Amiens = tableau[19]
+Toulouse = tableau[20]
+
+#Rechercher les valeures sélectionnées
+"""def recherche():
+    for ligne in range:"""
+
+#Calculer les différentes probabilitées
+
+def calcul_resultat(equipe1,equipe2):
+    if int(equipe1[2])/int(equipe1[1]) - int(equipe2[2])/int(equipe2[1]) > 0.2 :
+        return equipe1[0]
+    elif 0.2> int(equipe1[2]/equipe1[1]) - int(equipe2[2]/equipe2[1]) > -0.2 :
+        return "Match nul"
+    else :
+        return equipe2[0]
+
+
 # Créer une premiere fenetre
+
 window = Tk()
 
 #Personnalisation de la fenetre
+
 window.title("Pronostique Atanbatlex")
 window.geometry("1080x720")
 window.minsize(720, 480)
@@ -13,6 +58,7 @@ window.iconbitmap("Icon.ico")
 
 
 # ajouter du texte
+
 label_title = Label(window, text="Bienvenue sur notre application de pronostique sur la ligue 1", font=("Bauhaus 93", 35))
 label_title.pack(expand=YES)
 
@@ -67,6 +113,7 @@ def Ouvrirligue1():
     select1 = StringVar()
     ListeCombo = ttk.Combobox(ligue1, values=listequipes, textvariable = select1)
     ListeCombo.grid(row=3, column=1)
+    equipe1 = select1.get
 
 
     #Création de l'objet 2
@@ -74,12 +121,16 @@ def Ouvrirligue1():
     select2 = StringVar()
     ListeCombo2 = ttk.Combobox(ligue1, values=listequipes, textvariable = select2)
     ListeCombo2.grid(row=3, column=4)
+    equipe2 = select2.get
 
     #Création du boutton valider
-    equipe1 = select1.get
-    equipe2 = select2.get
-    bouttonvalider = Button(ligue1, text="Valider")
+
+    bouttonvalider = Button(ligue1, text="Valider", command = calcul_resultat)
     bouttonvalider.grid(row=4,column=3)
+
+    #Retour à l'utilisateur
+    bouttonvalider.getvar
+    label_retour = Label(ligue1,)
 
 
 def OuvrirContact():
@@ -127,21 +178,25 @@ def OuvrirAvis():
 
 
 # Barre menu
+
 MenuBar = Menu(window)
 
 # Menu principaux
+
 menuPronostique = Menu(MenuBar)
 menuContact = Menu(MenuBar)
 menuApropos = Menu(MenuBar)
 menuAvis = Menu(MenuBar)
 
 #Ajout des menus à la barre
+
 MenuBar.add_cascade(label="Pronostique", menu=menuPronostique)
 MenuBar.add_cascade(label="Contact", menu=menuContact)
 MenuBar.add_cascade(label="A-propos", menu=menuApropos)
 MenuBar.add_cascade(label="Avis", menu=menuAvis)
 
 # Ajout de commandes aux menus
+
 menuPronostique.add_command(label="Ligue 1", command=Ouvrirligue1)
 menuContact.add_command(label="Contact", command=OuvrirContact)
 menuApropos.add_command(label="A propos", command=OuvrirApropos)
@@ -149,42 +204,7 @@ menuAvis.add_command(label="Avis", command=OuvrirAvis)
 
 
 # Afficher la fênetre
+
 window.config(menu=MenuBar)
 window.mainloop()
 
-#Récupérer les données du classement
-tableau = []
-with open('Classement_ligue _1_(avant_COVID-19).csv','r') as fic:
-        for ligne in fic:
-            tableau.append(ligne.strip().split(";"))
-
-ParisSG = tableau[1]
-Marseille = tableau[2]
-Rennes = tableau[3]
-Lille = tableau[4]
-Reims = tableau[5]
-Nice = tableau[6]
-Lyon = tableau[7]
-Montpellier = tableau[8]
-Monaco = tableau[9]
-Angers = tableau[10]
-Strasbourg = tableau[11]
-Bordeaux = tableau[12]
-Nantes = tableau[13]
-Brest = tableau[14]
-Metz = tableau[15]
-Dijon = tableau[16]
-ASSE = tableau[17]
-Nimes = tableau[18]
-Amiens = tableau[19]
-Toulouse = tableau[20]
-
-#Calculer les différentes probabilitées
-
-def calcul_resultat(equipe1,equipe2):
-    if int(equipe1[2])/int(equipe1[1]) - int(equipe2[2])/int(equipe2[1]) > 0.2 :
-        return equipe1[0]
-    elif 0.2> int(equipe1[2]/equipe1[1]) - int(equipe2[2]/equipe2[1]) > -0.2 :
-        return "Match nul"
-    else :
-        return equipe2[0]
