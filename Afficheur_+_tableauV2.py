@@ -30,18 +30,27 @@ Amiens = tableau[19]
 Toulouse = tableau[20]
 
 #Rechercher les valeures sélectionnées
-"""def recherche():
-    for ligne in range:"""
+
+def recherche(equipe):
+   equipe1 = select1.get()
+   equipe2 = select2.get()
+   for ligne in range(20):
+        if tableau[ligne][0] == equipe:
+            return tableau[ligne]
 
 #Calculer les différentes probabilitées
 
-def calcul_resultat(equipe1,equipe2):
-    if int(equipe1[2])/int(equipe1[1]) - int(equipe2[2])/int(equipe2[1]) > 0.2 :
-        return equipe1[0]
-    elif 0.2> int(equipe1[2]/equipe1[1]) - int(equipe2[2]/equipe2[1]) > -0.2 :
+def calcul_resultat():
+    equipe1 = select1.get()
+    info1 = recherche(equipe1)
+    equipe2 = select2.get()
+    info2 = recherche(equipe2)
+    if int(info1[2])/int(info1[1]) - int(info2[2])/int(info2[1]) > 0.2 :
+        return (equipe1,int(info1[2])/int(info1[1]),int(info2[2])/int(info2[1]))
+    elif 0.2> int(info1[2]/info1[1]) - int(info2[2]/info2[1]) > -0.2 :
         return "Match nul"
     else :
-        return equipe2[0]
+        return (equipe2,int(info1[2]/info1[1]),int(info2[2]/info2[1]))
 
 
 # Créer une premiere fenetre
@@ -113,7 +122,7 @@ def Ouvrirligue1():
     select1 = StringVar()
     ListeCombo = ttk.Combobox(ligue1, values=listequipes, textvariable = select1)
     ListeCombo.grid(row=3, column=1)
-    equipe1 = select1.get
+    global select1
 
 
     #Création de l'objet 2
@@ -121,7 +130,7 @@ def Ouvrirligue1():
     select2 = StringVar()
     ListeCombo2 = ttk.Combobox(ligue1, values=listequipes, textvariable = select2)
     ListeCombo2.grid(row=3, column=4)
-    equipe2 = select2.get
+    global select2
 
     #Création du boutton valider
 
@@ -129,7 +138,6 @@ def Ouvrirligue1():
     bouttonvalider.grid(row=4,column=3)
 
     #Retour à l'utilisateur
-    bouttonvalider.getvar
     label_retour = Label(ligue1,)
 
 
