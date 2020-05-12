@@ -62,14 +62,14 @@ def Ouvrirligue1():
     #Création de l'objet
 
     global select1
-    select1 = StringVar()
+    select1 = StringVar(ligue1)
     ListeCombo = ttk.Combobox(ligue1, values=listequipes, textvariable = select1)
     ListeCombo.grid(row=3, column=1)
 
     #Création de l'objet 2
 
     global select2
-    select2 = StringVar()
+    select2 = StringVar(ligue1)
     ListeCombo2 = ttk.Combobox(ligue1, values=listequipes, textvariable = select2)
     ListeCombo2.grid(row=3, column=4)
 
