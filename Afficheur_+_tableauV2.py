@@ -8,27 +8,6 @@ with open('Classement_ligue _1_(avant_COVID-19).csv','r') as fic:
         for ligne in fic:
             tableau.append(ligne.strip().split(";"))
 
-ParisSG= tableau[1]
-Marseille= tableau[2]
-Rennes= tableau[3]
-Lille= tableau[4]
-Reims= tableau[5]
-Nice= tableau[6]
-Lyon= tableau[7]
-Montpellier= tableau[8]
-Monaco= tableau[9]
-Angers= tableau[10]
-Strasbourg= tableau[11]
-Bordeaux= tableau[12]
-Nantes= tableau[13]
-Brest= tableau[14]
-Metz= tableau[15]
-Dijon= tableau[16]
-ASSE= tableau[17]
-Nimes= tableau[18]
-Amiens= tableau[19]
-Toulouse= tableau[20]
-
 #Rechercher les valeures sélectionnées
 
 def recherche(equipe):
@@ -184,6 +163,28 @@ def OuvrirAvis():
     Avis.config(background='white')
     Avis.minsize(720, 480)
 
+#Constantes
+
+ParisSG= tableau[1]
+Marseille= tableau[2]
+Rennes= tableau[3]
+Lille= tableau[4]
+Reims= tableau[5]
+Nice= tableau[6]
+Lyon= tableau[7]
+Montpellier= tableau[8]
+Monaco= tableau[9]
+Angers= tableau[10]
+Strasbourg= tableau[11]
+Bordeaux= tableau[12]
+Nantes= tableau[13]
+Brest= tableau[14]
+Metz= tableau[15]
+Dijon= tableau[16]
+ASSE= tableau[17]
+Nimes= tableau[18]
+Amiens= tableau[19]
+Toulouse= tableau[20]
 
 # Barre menu
 
